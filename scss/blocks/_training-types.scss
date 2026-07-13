@@ -1,0 +1,52 @@
+@use '../helpers/' as *;
+
+.training-types {
+  // чтобы верхнее изображение не наезжало на секцию
+  position: relative;
+
+  @include container-width;
+  padding-top: rem(70);
+  padding-bottom: rem(120);
+
+  // чтобы верхнее изображение не наезжало на секцию
+  background-color: var(--color-dark);
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: fluid(60, 30);
+
+    @include laptop-s {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    --bgIconSize: #{rem(80)};
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: fluid(32, 20);
+
+    padding-top: var(--bgIconSize);
+
+    background: url('../../icons/arrow-down-left-transparent.svg') 100% 0/var(--bgIconSize) no-repeat;
+
+    @include mobile {
+      --bgIconSize: #{rem(60)};
+    }
+
+    &-title {
+      font-size: rem(16);
+    }
+  }
+
+  &__image {
+    max-width: rem(120);
+  }
+}

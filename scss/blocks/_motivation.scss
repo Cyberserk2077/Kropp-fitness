@@ -1,0 +1,71 @@
+@use '../helpers/' as *;
+
+.motivation {
+
+  &__item {
+
+    &:nth-child(even) {
+      background-color: var(--color-dark-alt);
+
+      .motivation__card {
+        flex-direction: row-reverse;
+
+        @include mobile {
+          flex-direction: column-reverse;
+        }
+      }
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    column-gap: clamp(rem(30), 10.42vw, rem(200));
+
+    @include tablet {
+      padding-block: rem(50);
+    }
+
+    @include mobile {
+      flex-direction: column-reverse;
+      row-gap: rem(30);
+
+      padding-block: rem(30);
+    }
+
+    &-body {
+      padding-left: rem(35);
+    }
+
+    &-title {
+      margin-bottom: rem(14);
+    }
+
+    &-description {
+      max-width: rem(400);
+
+      &:not(:last-child) {
+        margin-bottom: rem(37);
+
+        @include mobile {
+          margin-bottom: rem(25);
+        }
+      }
+    }
+
+    &-image {
+      margin-block: rem(-60);
+
+      @include tablet {
+        max-width: 40%;
+        height: auto;
+        margin-block: 0;
+      }
+
+      @include mobile {
+        max-width: 60%;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@use 'normalize';
+@use 'fonts';
+@use 'variables';
+@use 'utils';
+@use 'globals';
+
+@use 'blocks/header';
+@use 'blocks/logo';
+@use 'blocks/button';
+@use 'blocks/burger-button';
+@use 'blocks/banner';
+@use 'blocks/swiper';
+@use 'blocks/motivation';
+@use 'blocks/training-types';
+@use 'blocks/join-us';
+@use 'blocks/input';
+@use 'blocks/location';
+@use 'blocks/family';
+@use 'blocks/calculate';
+@use 'blocks/footer';
+
+// .header,
+// main>:not(:last-child),
+// .footer {
+//   display: none !important;
+// }

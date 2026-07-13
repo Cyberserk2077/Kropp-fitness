@@ -1,0 +1,73 @@
+@use '../helpers/' as *;
+
+.swiper {
+  --swiper-pagination-bullet-horizontal-gap: #{rem(5)};
+  --swiper-pagination-bottom: none;
+  // min-height: calc(100vh - var(--header-height));
+  min-height: rem(600);
+
+  @include laptop {
+    min-height: rem(500);
+  }
+
+  @include tablet {
+    min-height: rem(400);
+  }
+  
+  @include mobile {
+    min-height: rem(250);
+  }
+
+  @include mobile-s {
+    min-height: rem(200);
+  }
+
+  &-info {
+    display: flex;
+    align-items: end;
+
+    font-weight: 700;
+    font-size: clamp(rem(16), 1.56vw, rem(30));
+    line-height: 1.27;
+
+    @include mobile {
+      margin-bottom: rem(10);
+    }
+
+    &::before {
+      content: '';
+
+      margin-right: rem(30);
+
+      @include square(clamp(rem(60), 10.1vw, rem(194)));
+      background: url('../../icons/arrow-down-right-large.svg') center / contain no-repeat;
+
+      @include mobile {
+        margin-right: rem(10);
+      }
+    }
+  }
+
+  &-title {
+    /* размер большого заголовка через vw, чтобы уменьшался с
+    размером экрана: 
+    360(размер в пикселях) / 1920(ширина макета) * 100*/
+    font-size: min(18.75vw, rem(360));
+    line-height: 1;
+  }
+
+  &-pagination-bullet {
+    background-color: transparent;
+    border: var(--border-light);
+    transition-duration: var(--transition-duration);
+
+    @include hover {
+      scale: 1.7;
+    }
+  }
+
+  &-pagination-bullet-active {
+    pointer-events: none;
+    background-color: var(--color-light);
+  }
+}

@@ -1,0 +1,11 @@
+@use '../helpers/' as *;
+
+.logo {
+
+  &__image {
+    // чтобы логотип не сжимался
+    flex-shrink: 0;
+
+    height: auto;
+  }
+}

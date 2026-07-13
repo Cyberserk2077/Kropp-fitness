@@ -1,0 +1,131 @@
+@use '../helpers/' as *;
+
+.join-us {
+  background-color: var(--color-dark-alt);
+
+  &__video-wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: rem(150) rem(30);
+
+    background: url('../../images/video/video-bg.jpg') center / cover no-repeat var(--color-dark-alt);
+  }
+
+  &__video {
+    width: 100%;
+    max-width: rem(960);
+    height: auto;
+  }
+
+  &__video-play-button {
+    position: absolute;
+    @include abs-center;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: rem(4);
+
+    @include square(rem(200));
+    border-radius: 50%;
+    border: var(--border-light);
+
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: rem(14);
+    color: var(--color-light);
+    text-transform: uppercase;
+
+    background-color: transparent;
+
+    @include hover {
+      color: var(--color-dark);
+
+      background-color: var(--color-light-gray);
+
+      &::after {
+        filter: invert(1);
+      }
+    }
+
+    @include mobile {
+
+      @include square(rem(140));
+    }
+
+    &::after {
+      content: '';
+
+      @include square(rem(32));
+
+      background: url('../../icons/arrow-top-right.svg') center / contain no-repeat;
+      transition-duration: var(--transition-duration);
+    }
+  }
+
+  &__body {
+    padding-bottom: fluid(150, 80);
+  }
+
+  &__title {
+    position: relative;
+
+    margin-top: -0.4em;
+
+    font-size: clamp(rem(64), 9.37vw, rem(180));
+    line-height: 1;
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: fluid(130, 40);
+    }
+
+    &::after {
+      content: '';
+
+      display: inline-block;
+
+      margin-left: 0.14em;
+      /* делим 120px: размер иконки на 
+      180px: размер шрифта заголовка, чтобы размер иконки был
+      в em-единицах */
+      height: 0.7em;
+      aspect-ratio: 1;
+
+      background: url('../../icons/arrow-top-right-large.svg') center / contain no-repeat;
+    }
+  }
+
+  &__form {
+
+    &-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: rem(7);
+
+      &:not(:last-child) {
+        margin-bottom: rem(52);
+      }
+    }
+
+    &-body {
+      display: flex;
+      justify-content: center;
+      gap: rem(20);
+
+      @include mobile {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    &-input {
+      max-width: rem(400);
+    }
+  }
+}

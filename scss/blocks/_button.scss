@@ -1,0 +1,68 @@
+@use '../helpers/' as *;
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  height: rem(38);
+  padding-inline: rem(26);
+  border-radius: var(--border-radius);
+  border: none;
+
+  font-size: rem(12);
+  font-weight: 700;
+  line-height: 2;
+  letter-spacing: rem(1.2);
+  color: var(--color-dark);
+  text-transform: uppercase;
+  text-decoration: none;
+
+  background-color: var(--color-light);
+  cursor: pointer;
+  white-space: nowrap;
+
+  @include laptop {
+    padding-inline: rem(20);
+  }
+
+  @include hover {
+    background-color: var(--color-light-gray);
+  }
+
+  &--transparent {
+    position: relative;
+
+    height: rem(54);
+    padding-left: rem(31);
+    padding-right: rem(80);
+
+    background-color: transparent;
+    border: var(--border-light);
+
+    font-size: rem(13);
+    letter-spacing: 0.1em;
+    color: var(--color-light);
+
+
+    @include hover {
+      color: var(--color-dark);
+
+      background-color: var(--color-light-gray);
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+
+      height: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+
+      background: url('../../icons/arrow-top-right.svg') center / 70% no-repeat;
+      border: var(--border-light);
+    }
+  }
+}

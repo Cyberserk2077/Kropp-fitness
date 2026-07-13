@@ -1,0 +1,143 @@
+@use '../helpers' as *;
+
+.footer {
+  --footerLogoWidth: 20.77%;
+
+  &__main {
+    padding-top: fluid(140, 50);
+    padding-bottom: fluid(160, 50);
+  }
+
+  &__header,
+  &__body {
+    display: grid;
+    column-gap: rem(62);
+  }
+
+  &__header {
+    /* делим ширину логотипа (277px) 
+    на ширину контейнера (1300px)
+    умножаем на 100 = 20.77%*/
+    grid-template-columns: var(--footerLogoWidth) auto;
+
+    &:not(:last-child) {
+      margin-bottom: fluid(60, 30);
+    }
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      row-gap: rem(30);
+    }
+  }
+
+  &__body {
+    grid-template-columns: var(--footerLogoWidth) repeat(3, 1fr);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: rem(30);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column {
+
+    &-title {
+
+      @include fluid-text(22, 16);
+
+      &:not(:last-child) {
+        margin-bottom: rem(15);
+      }
+
+      &--has-arrow {
+
+        &::after {
+          content: '';
+          display: inline-block;
+
+          margin-left: 0.5em;
+          /* делим 120px: размер иконки на 
+          180px: размер шрифта заголовка, чтобы размер иконки был
+          в em-единицах */
+          height: 0.74em;
+          aspect-ratio: 1;
+
+          background: url('../../icons/arrow-down-left.svg') center / contain no-repeat;
+        }
+      }
+    }
+  }
+
+  &__schedule {
+
+    &:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+  }
+
+  &__address {
+
+    &:not(:last-child) {
+      margin-bottom: rem(35);
+    }
+  }
+
+  &__subscribe {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: fluid(50, 35);
+    }
+
+    &-input {
+      padding-right: rem(70);
+    }
+
+    &-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      aspect-ratio: 1;
+
+      border-radius: 50%;
+
+      border: var(--border-gray);
+      background: url('../../icons/arrow-top-right.svg') center / 70% no-repeat;
+
+      @include hover {
+        background-color: var(--color-light-gray);
+      }
+    }
+  }
+
+  &__soc1als {
+
+    &-list {
+      display: flex;
+      column-gap: rem(18);
+    }
+
+    &-link {
+      display: flex;
+
+      width: rem(23);
+      aspect-ratio: 1;
+    }
+  }
+
+  &__extra {
+    padding-block: rem(15);
+
+    background-color: var(--color-dark-alt);
+  }
+
+  &__copyright {
+    font-size: rem(14);
+  }
+}

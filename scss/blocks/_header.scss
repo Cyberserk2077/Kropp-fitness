@@ -1,0 +1,89 @@
+@use '../helpers/' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
+
+  min-height: var(--header-height);
+  padding-inline: rem(32);
+
+  background-color: var(--color-dark-alt);
+
+  @include mobile {
+    padding-block: rem(30);
+  }
+
+  &__overlay {
+    background-color: var(--color-dark-alt);
+    
+    @include mobile-above {
+      display: contents;
+    }
+
+    @include mobile {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      row-gap: 3rem;
+
+      padding: 1rem;
+
+      transition-duration: var(--transition-duration);
+
+      &:not(.is-active) {
+        @include hide;
+        translate: 100%;
+      }
+    }
+  }
+
+  &__menu {
+
+    &-list {
+      display: flex;
+      column-gap: rem(50);
+
+      @include tablet {
+        column-gap: rem(30);
+      }
+
+      @include mobile {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    &-link {
+      // увеличивает область нажатия на ссылку
+      display: inline-flex;
+      align-items: center;
+      column-gap: rem(7);
+
+      height: var(--header-height);
+
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: rem(12);
+      letter-spacing: rem(1.2);
+
+      &.is-active::after {
+        content: '';
+
+        display: inline-flex;
+        align-items: center;
+
+        @include square(rem(5));
+        border-radius: 50%;
+
+        background-color: currentColor;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use '../helpers/' as *;
+
+.location {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  @include container-width;
+
+  @include tablet {
+    display: flex;
+    flex-direction: column-reverse;
+    
+  }
+
+  &__map-image {
+    height: auto;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: fluid(80, 40);
+
+    text-align: center;
+  }
+
+  &__title {
+
+    &:not(:last-child) {
+      margin-bottom: rem(14);
+    }
+  }
+
+  &__description {
+    max-width: rem(490);
+
+    &:not(:last-child) {
+      margin-bottom: fluid(37, 20);
+    }
+  }
+}
