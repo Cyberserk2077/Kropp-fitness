@@ -13,7 +13,7 @@
   @include tablet {
     min-height: rem(400);
   }
-  
+
   @include mobile {
     min-height: rem(250);
   }
@@ -40,7 +40,7 @@
       margin-right: rem(30);
 
       @include square(clamp(rem(60), 10.1vw, rem(194)));
-      background: url('../../icons/arrow-down-right-large.svg') center / contain no-repeat;
+      background: url('../icons/arrow-down-right-large.svg') center / contain no-repeat;
 
       @include mobile {
         margin-right: rem(10);
@@ -50,7 +50,7 @@
 
   &-title {
     /* размер большого заголовка через vw, чтобы уменьшался с
-    размером экрана: 
+    размером экрана:
     360(размер в пикселях) / 1920(ширина макета) * 100*/
     font-size: min(18.75vw, rem(360));
     line-height: 1;

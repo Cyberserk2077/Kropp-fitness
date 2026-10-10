@@ -1,38 +1,54 @@
 # Kropp Fitness
 
-Responsive fitness landing page built with HTML, SCSS and JavaScript.
+A responsive fitness landing page built with HTML, SCSS and JavaScript. The original English content, dark visual style, photography and link hover effects are preserved.
 
-## Live Demo
-
-[View website](https://cyberserk2077.github.io/Kropp-fitness/)
-
-## About
-
-Kropp Fitness is a responsive landing page for a modern fitness center.
-
-The project was created from a design layout and includes desktop, tablet and mobile versions, interactive navigation and a responsive slider.
+[Live demo](https://cyberserk2077.github.io/Kropp-fitness/)
 
 ## Features
 
-- Responsive layout
-- Mobile navigation
-- Swiper slider
-- SCSS architecture
-- Reusable interface components
-- Adaptive images and typography
-
-## Technologies
-
-- HTML5
-- SCSS
-- CSS3
-- JavaScript
-- Swiper
-- Git
-- GitHub Pages
+- Accessible mobile navigation with keyboard controls and focus restoration
+- Local session request and subscription form validation
+- Adult BMI and energy expenditure calculator
+- Video preview notice in an accessible dialog
+- Keyboard-scrollable photo gallery
+- Swiper event slider with a readable fallback when the CDN is unavailable
+- Reduced motion support, visible keyboard focus and a skip link
 
 ## Run locally
 
+Open a terminal in the project directory and start a static HTTP server:
+
 ```bash
-git clone git@github.com:Cyberserk2077/Kropp-fitness.git
-cd Kropp-fitness
+python3 -m http.server 8000
+```
+
+Open http://localhost:8000 in your browser. Use HTTP rather than opening `index.html` directly: JavaScript modules require a server.
+
+## Build styles
+
+Node.js and npm are required for SCSS development:
+
+```bash
+npm ci
+npm run sass
+```
+
+For automatic rebuilding while editing:
+
+```bash
+npm run sass:watch
+```
+
+Edit files in `scss/`; commit the generated `css/main.css` alongside the sources. The committed CSS allows GitHub Pages to serve the project without a build step.
+
+## Demonstration limits
+
+Forms only validate details in the browser. Nothing is submitted or stored. Without JavaScript, form fields and submit buttons are disabled; content, contacts and gallery remain readable.
+
+Links labelled “demo” preserve hover effects but do not navigate with JavaScript enabled. No destination pages are included. Without JavaScript they lead to a harmless local fragment. Email and telephone links remain active.
+
+The video poster is included; the Play button opens a notice because no video file is connected. Swiper is loaded from a CDN; without it, all three events are shown as a list.
+
+The calculator supports adults aged 18–100, height 100–250 cm and weight 30–300 kg. BMI is weight divided by squared height in metres. Estimated resting energy uses the [Mifflin–St Jeor equation](https://pubmed.ncbi.nlm.nih.gov/2305711/); daily expenditure multiplies this estimate by an activity factor of 1.2, 1.375, 1.55, 1.725 or 1.9. These are approximate educational demo estimates, without personal nutrition advice. Daily energy is rounded after multiplication.
+
+No backend, real bookings, subscriptions or payment processing are included. Contact details and event dates belong to the original demonstration layout.

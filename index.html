@@ -4,60 +4,59 @@
 		<meta charset="UTF-8" />
 		<meta
 			name="viewport"
-			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Kropp Fitness</title>
-
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-		/>
+		<meta name="description" content="Kropp Fitness — a responsive fitness landing page with training inspiration, a session request demo and an interactive BMI and energy calculator." />
 		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
 
-		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+		<script id="swiper-script" async src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 		<script src="./scripts/main.js" type="module"></script>
 	</head>
 
-	<body>
+	<body id="top">
+		<a class="skip-link" href="#main">Skip to main content</a>
+		<noscript><p class="demo-notice container">JavaScript is required for the menu, demo forms, video notice and calculator. All content remains available below.</p></noscript>
 		<header class="header" data-js-header>
-			<a class="header__logo logo" href="/">
+			<a class="header__logo logo" href="#top">
 				<img
 					class="logo__image"
 					src="./images/logo.png"
 					alt="Kropp Logo"
 					width="135"
 					height="25"
-					loading="lazy"
+					loading="eager"
 				/>
 			</a>
-			<div class="header__overlay" data-js-header-overlay>
+			<div class="header__overlay" id="header-menu" data-js-header-overlay>
 				<nav class="header__menu">
 					<ul class="header__menu-list">
 						<li class="header__menu-item">
-							<a class="header__menu-link is-active" href="/">Home</a>
+							<a class="header__menu-link is-active" href="#top">Home</a>
 						</li>
 						<li class="header__menu-item">
-							<a class="header__menu-link" href="/">Pages</a>
+							<a class="header__menu-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included">Pages<span class="demo-link__label"> demo</span></a>
 						</li>
 						<li class="header__menu-item">
-							<a class="header__menu-link" href="/">Portfolio </a>
+							<a class="header__menu-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included">Portfolio <span class="demo-link__label"> demo</span></a>
 						</li>
 						<li class="header__menu-item">
-							<a class="header__menu-link" href="/">Blog</a>
+							<a class="header__menu-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included">Blog<span class="demo-link__label"> demo</span></a>
 						</li>
 						<li class="header__menu-item">
-							<a class="header__menu-link" href="/">Shop</a>
+							<a class="header__menu-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included">Shop<span class="demo-link__label"> demo</span></a>
 						</li>
 					</ul>
 				</nav>
-				<button class="header__book-button button" type="button">
+				<button class="header__book-button button" type="button" disabled data-js-book>
 					Book now
 				</button>
 			</div>
 			<button
 				class="header__burger-button burger-button visible-mobile"
 				type="button"
-				data-js-header-burger-button
+				aria-label="Open menu" aria-expanded="false" aria-controls="header-menu" hidden data-js-header-burger-button
 			>
 				<span class="burger-button__line"></span>
 				<span class="burger-button__line"></span>
@@ -65,8 +64,8 @@
 			</button>
 		</header>
 
-		<main>
-			<h1 class="visually-hidden">Cropp Fitness Club</h1>
+		<main id="main" tabindex="-1">
+			<h1 class="visually-hidden">Kropp Fitness Club</h1>
 			<section class="banner" aria-labelledby="banner-title">
 				<h2 class="visually-hidden" id="banner-title">Upcoming events</h2>
 				<div class="banner__slider">
@@ -127,8 +126,8 @@
 								</div>
 								<a
 									class="motivation__card-button button button--transparent"
-									href="/"
-									>View more</a
+									href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included"
+									>View more<span class="demo-link__label"> demo</span></a
 								>
 							</div>
 							<img
@@ -159,8 +158,8 @@
 								</div>
 								<a
 									class="motivation__card-button button button--transparent"
-									href="/"
-									>View more</a
+									href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included"
+									>View more<span class="demo-link__label"> demo</span></a
 								>
 							</div>
 							<img
@@ -254,20 +253,19 @@
 				<div class="join-us__video-wrapper">
 					<video
 						class="join-us__video"
-						src=""
 						width="960"
 						height="600"
 						poster="./images/video/video-placeholder.jpg"
 					></video>
-					<button class="join-us__video-play-button" type="button">Play</button>
+					<button class="join-us__video-play-button" type="button" disabled aria-haspopup="dialog" aria-controls="video-dialog">Play</button>
 				</div>
 				<div class="join-us__body container">
 					<h2 class="join-us__title" id="join-us-title">Join us</h2>
-					<form class="join-us__form" action="/">
+					<form class="join-us__form" data-js-demo-form aria-describedby="session-notice">
 						<header class="join-us__form-header">
 							<h3
 								class="join-us__form-title backdrop-title backdrop-title--centered title-big"
-								data-title="Go!"
+								data-title="Go!" id="start-here" tabindex="-1"
 							>
 								Start here
 							</h3>
@@ -275,29 +273,35 @@
 								fill the form below to start your journey
 							</div>
 						</header>
+						<p class="demo-notice" id="session-notice">Demo only. Details are checked in your browser, never sent or stored.</p>
 						<div class="join-us__form-body">
-							<label class="visually-hidden" for="username">Name</label>
-							<input
+							<div class="form-field">
+								<label for="username">Name</label>
+								<input
 								class="join-us__form-input input"
 								type="text"
-								id="username"
+								id="username" name="name" autocomplete="name" required maxlength="100" disabled
 								placeholder="Name"
 							/>
-							<label class="visually-hidden" for="email">Email</label>
-							<input
+							</div>
+							<div class="form-field">
+								<label for="email">Email</label>
+								<input
 								class="join-us__form-input input"
 								type="email"
-								id="email"
+								id="email" name="email" autocomplete="email" required disabled
 								placeholder="Email"
 							/>
+							</div>
 							<button
 								class="join-us__form-button button button--transparent"
-								type="submit"
+								type="submit" disabled
 							>
-								Subscribe
+								Request a session
 							</button>
 						</div>
-					</form>
+						<p class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+						</form>
 				</div>
 			</section>
 
@@ -324,8 +328,8 @@
 							diam noluisse cu, nam adipisci
 						</p>
 					</div>
-					<a class="location__button button button--transparent" href="/"
-						>view more</a
+					<a class="location__button button button--transparent" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included"
+						>view more<span class="demo-link__label"> demo</span></a
 					>
 				</div>
 			</section>
@@ -343,7 +347,8 @@
 						Training helps you think and feel better. join us!
 					</div>
 				</header>
-				<div class="family__body">
+				<p class="family__hint container">Scroll the gallery or use the arrow keys when it is focused.</p>
+				<div class="family__body" tabindex="0" role="region" aria-label="Training photo gallery">
 					<img
 						class="family__image"
 						src="./images/family/1.jpg"
@@ -395,74 +400,85 @@
 							class="calculate__title title-medium backdrop-title"
 							data-title="BMI"
 						>
-							Input your BMI
+							Calculate your BMI
 						</h3>
 						<div class="calculate__description">
 							<p>
-								Duo graece ponderum ne, ei mel aliquando. Pro te tamquam
-								nonumes, nam no nemore epicurei
+								Estimate your BMI and daily energy expenditure using the Mifflin–St Jeor formula. An approximate demonstration for adults aged 18–100, without personal nutrition recommendations. Values are calculated locally and never sent or stored.
 							</p>
 						</div>
-						<form class="calculate__form" action="/">
+						<form class="calculate__form">
 							<div class="calculate__form-body">
-								<label class="visually-hidden" for="height">Height</label>
+								<div class="form-field">
+								<label for="height">Height (cm)</label>
 								<input
 									class="calculate__form-input input"
 									type="number"
-									id="height"
+									id="height" name="height" min="100" max="250" step="0.1" required disabled
 									placeholder="Height / cm"
 								/>
-								<label class="visually-hidden" for="weight">Weight</label>
+							</div>
+								<div class="form-field">
+								<label for="weight">Weight (kg)</label>
 								<input
 									class="calculate__form-input input"
 									type="number"
-									id="weight"
+									id="weight" name="weight" min="30" max="300" step="0.1" required disabled
 									placeholder="Weight / kg"
 								/>
-								<label class="visually-hidden" for="age">Age</label>
+							</div>
+								<div class="form-field">
+								<label for="age">Age (years)</label>
 								<input
 									class="calculate__form-input input"
 									type="number"
-									id="age"
+									id="age" name="age" min="18" max="100" step="1" required disabled
 									placeholder="Age"
 								/>
-								<label class="visually-hidden" for="gender">Gender</label>
+							</div>
+								<div class="form-field">
+								<label for="gender">Sex used in the formula</label>
 								<select
 									class="calculate__form-input input"
-									id="gender"
+									id="gender" name="gender" disabled
 									required
 								>
 									<option value="" hidden>Gender</option>
 									<option value="male">Male</option>
 									<option value="female">Female</option>
 								</select>
-								<label class="visually-hidden" for="activity-factor"
-									>Activity-factor</label
-								>
+							</div>
+								<div class="form-field form-field--wide">
+								<label for="activity-factor">Activity level</label>
 								<select
-									class="calculate__form-input input input--wide"
-									id="activity-factor"
+									class="calculate__form-input input"
+									id="activity-factor" name="activity" disabled
 									required
 								>
-									<option value="" hidden>Select an activity factor:</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
+									<option value="" hidden>Choose activity level</option>
+																		<option value="1.2">Sedentary — little exercise</option>
+									<option value="1.375">Light — 1–3 days/week</option>
+									<option value="1.55">Moderate — 3–5 days/week</option>
+									<option value="1.725">Very active — 6–7 days/week</option>
+									<option value="1.9">Extra active — intense training</option>
 								</select>
+							</div>
 							</div>
 							<button
 								class="calculate__form-button button button--transparent"
-								type="submit"
+								type="submit" disabled
 							>
 								Calculate
 							</button>
+							<p class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
 						</form>
 					</div>
 					<div class="calculate__table-wrapper">
 						<table class="calculate__table">
 							<thead>
 								<tr>
-									<th>BMI</th>
-									<th>Weight status</th>
+									<th scope="col">BMI</th>
+									<th scope="col">Weight status</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -486,7 +502,7 @@
 							<tfoot>
 								<tr>
 									<td colspan="2">
-										<b>BMR</b> Metabolic Rate / <b>BMI</b> Body Mass Index
+										<b>BMI</b> Body Mass Index. Adult reference ranges are approximate.
 									</td>
 								</tr>
 							</tfoot>
@@ -496,11 +512,11 @@
 			</section>
 		</main>
 
-		<footer class="footer">
+		<footer class="footer" id="contacts">
 			<div class="footer__main">
 				<div class="footer__main-inner container">
 					<header class="footer__header">
-						<a class="footer__logo logo" href="/">
+						<a class="footer__logo logo" href="#top">
 							<img
 								class="logo__image"
 								src="./images/logo.png"
@@ -564,28 +580,32 @@
 							<h2 class="footer__column-title footer__column-title--has-arrow">
 								Start now
 							</h2>
-							<form class="footer__subscribe" action="/">
-								<label class="visually-hidden" for="subscribe-email"
+							<form class="footer__subscribe" data-js-demo-form aria-describedby="subscribe-notice">
+								<p class="demo-notice" id="subscribe-notice">Demo only. Your email is checked locally, never sent or stored.</p>
+								<label for="subscribe-email"
 									>Email</label
 								>
+								<div class="footer__subscribe-field">
 								<input
 									class="footer__subscribe-input input"
 									type="email"
 									placeholder="Email"
-									id="subscribe-email"
+									id="subscribe-email" name="email" autocomplete="email" required disabled
 								/>
 								<button
 									class="footer__subscribe-button"
-									type="submit"
+									type="submit" disabled
 									title="Subscribe"
 								>
 									<span class="visually-hidden">Subscribe</span>
 								</button>
-							</form>
+								</div>
+								<p class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+						</form>
 							<div class="footer__soc1als">
 								<ul class="footer__soc1als-list">
 									<li class="footer__soc1als-item">
-										<a class="footer__soc1als-link" href="/" target="_blank">
+										<a class="footer__soc1als-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included" aria-label="TikTok (demo link)" target="_blank">
 											<svg
 												viewBox="0 0 19 21"
 												fill="none"
@@ -599,7 +619,7 @@
 										</a>
 									</li>
 									<li class="footer__soc1als-item">
-										<a class="footer__soc1als-link" href="/" target="_blank">
+										<a class="footer__soc1als-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included" aria-label="YouTube (demo link)" target="_blank">
 											<svg
 												viewBox="0 0 23 16"
 												fill="none"
@@ -613,7 +633,7 @@
 										</a>
 									</li>
 									<li class="footer__soc1als-item">
-										<a class="footer__soc1als-link" href="/" target="_blank">
+										<a class="footer__soc1als-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included" aria-label="Instagram (demo link)" target="_blank">
 											<svg
 												viewBox="0 0 19 19"
 												fill="none"
@@ -627,7 +647,7 @@
 										</a>
 									</li>
 									<li class="footer__soc1als-item">
-										<a class="footer__soc1als-link" href="/" target="_blank">
+										<a class="footer__soc1als-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included" aria-label="Facebook (demo link)" target="_blank">
 											<svg
 												viewBox="0 0 11 21"
 												fill="none"
@@ -641,7 +661,7 @@
 										</a>
 									</li>
 									<li class="footer__soc1als-item">
-										<a class="footer__soc1als-link" href="/" target="_blank">
+										<a class="footer__soc1als-link" href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included" aria-label="Twitter (demo link)" target="_blank">
 											<svg
 												viewBox="0 0 21 18"
 												fill="none"
@@ -664,11 +684,17 @@
 				<div class="footer__extra-inner container">
 					<div class="footer__copyright">
 						© <time datetime="2025">2025</time> Qode Interactive, All Rights
-						Reserved | <a href="/">Privacy Policy</a> |
-						<a href="/">Contact Us</a>
+						Reserved | <a href="#demo-link" data-demo-link aria-describedby="demo-link-notice" title="Demo link — destination not included">Privacy Policy<span class="demo-link__label"> demo</span></a> |
+						<a href="#contacts">Contact Us</a>
 					</div>
 				</div>
 			</div>
 		</footer>
+		<p class="demo-notice container" id="demo-link-notice">Links marked “demo” showcase hover effects; their destinations are not included.</p>
+		<dialog class="video-dialog" id="video-dialog" aria-labelledby="video-dialog-title" aria-describedby="video-dialog-description">
+			<h2 id="video-dialog-title">Video preview</h2>
+			<p id="video-dialog-description">This portfolio demo includes the poster and player styling. A video is not connected.</p>
+			<button class="button" type="button" data-js-dialog-close>Close</button>
+		</dialog>
 	</body>
 </html>

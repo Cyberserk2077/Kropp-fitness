@@ -35,7 +35,7 @@
 
     padding-top: var(--bgIconSize);
 
-    background: url('../../icons/arrow-down-left-transparent.svg') 100% 0/var(--bgIconSize) no-repeat;
+    background: url('../icons/arrow-down-left-transparent.svg') 100% 0/var(--bgIconSize) no-repeat;
 
     @include mobile {
       --bgIconSize: #{rem(60)};
