@@ -1,0 +1,13 @@
+{
+  "name": "kropp-fitness-static",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sass": "sass scss/main.scss css/main.css --no-source-map",
+    "sass:watch": "sass --watch scss/main.scss:css/main.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.101.0"
+  }
+}

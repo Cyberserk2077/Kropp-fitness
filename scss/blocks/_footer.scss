@@ -15,7 +15,7 @@
   }
 
   &__header {
-    /* делим ширину логотипа (277px) 
+    /* делим ширину логотипа (277px)
     на ширину контейнера (1300px)
     умножаем на 100 = 20.77%*/
     grid-template-columns: var(--footerLogoWidth) auto;
@@ -61,13 +61,13 @@
           display: inline-block;
 
           margin-left: 0.5em;
-          /* делим 120px: размер иконки на 
+          /* делим 120px: размер иконки на
           180px: размер шрифта заголовка, чтобы размер иконки был
           в em-единицах */
           height: 0.74em;
           aspect-ratio: 1;
 
-          background: url('../../icons/arrow-down-left.svg') center / contain no-repeat;
+          background: url('../icons/arrow-down-left.svg') center / contain no-repeat;
         }
       }
     }
@@ -108,7 +108,7 @@
       border-radius: 50%;
 
       border: var(--border-gray);
-      background: url('../../icons/arrow-top-right.svg') center / 70% no-repeat;
+      background: url('../icons/arrow-top-right.svg') center / 70% no-repeat;
 
       @include hover {
         background-color: var(--color-light-gray);

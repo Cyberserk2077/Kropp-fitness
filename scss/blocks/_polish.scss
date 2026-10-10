@@ -1,0 +1,137 @@
+@use '../helpers' as *;
+
+[hidden] { display: none !important; }
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 1rem;
+  color: var(--color-dark);
+  background: var(--color-light);
+  translate: 0 -200%;
+
+  &:focus { translate: 0; }
+}
+
+.demo-notice, .form-status {
+  margin-block: 1rem;
+  font-size: rem(14);
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.form-status:empty { margin: 0; }
+.form-status { color: var(--color-light); }
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: rem(6);
+  min-width: 0;
+
+  &--wide { grid-column: 1 / -1; }
+}
+
+.input {
+  color: var(--color-light);
+  &::placeholder { color: var(--color-light-gray); opacity: 1; }
+}
+select.input {
+  color: var(--color-light-gray);
+  option { color: var(--color-light); background: var(--color-dark-alt); }
+}
+
+.demo-link__label { font-size: rem(10); margin-left: rem(4); text-transform: lowercase; }
+.footer__soc1als-link { min-width: rem(32); min-height: rem(32); }
+
+.join-us__form-body {
+  align-items: end;
+  .form-field { width: 100%; max-width: rem(400); }
+  .join-us__form-input { max-width: none; }
+  .join-us__form-button { flex-shrink: 0; }
+  @include mobile { align-items: center; }
+}
+.join-us__form > .demo-notice, .join-us__form > .form-status { text-align: center; }
+.footer__subscribe-field { position: relative; margin-top: rem(6); }
+.footer__subscribe-button { height: rem(54); }
+
+.video-dialog {
+  width: min(rem(480), calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: var(--border-gray);
+  border-radius: rem(12);
+  color: var(--color-light-gray);
+  background: var(--color-dark-alt);
+  h2 { margin-top: 0; line-height: 1.2; }
+  &::backdrop { background: rgb(0 0 0 / 80%); }
+}
+
+.family__body {
+  justify-content: flex-start;
+  overscroll-behavior-inline: contain;
+  .family__image { flex-shrink: 0; width: auto; object-fit: cover; }
+}
+.family__hint { margin-bottom: 1rem; text-align: center; font-size: rem(14); }
+.calculate__body { min-width: 0; }
+.calculate__table-wrapper { min-width: 0; }
+.calculate__table {
+  width: 100%;
+  font-size: clamp(rem(13), 1.2vw, rem(16));
+  td, th { padding-inline: clamp(rem(6), 2vw, rem(30)); }
+}
+
+.swiper {
+  position: relative;
+  overflow: hidden;
+  &-wrapper { display: flex; box-sizing: content-box; transition-property: transform; }
+  &-slide { flex-shrink: 0; width: 100%; position: relative; }
+  &-pagination { display: flex; justify-content: center; gap: rem(10); padding-top: rem(24); }
+  &-pagination-bullet { width: rem(16); height: rem(16); padding: 0; border-radius: 50%; cursor: pointer; }
+  &-notification { @include visually-hidden; }
+  &:not(.is-enhanced) {
+    min-height: 0;
+    .swiper-wrapper { display: grid; gap: rem(48); transform: none !important; }
+    .swiper-slide { width: 100% !important; margin: 0 !important; }
+    .swiper-pagination { display: none; }
+  }
+}
+
+@include mobile {
+  .header:not(.is-enhanced) {
+    flex-wrap: wrap;
+    .header__overlay { position: static; visibility: visible; opacity: 1; translate: none; width: 100%; }
+    .header__menu-list { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .header__menu-link { height: auto; }
+  }
+  .header__overlay { overflow-y: auto; transition-property: opacity, translate; }
+  .header__burger-button { position: relative; }
+  .backdrop-title::after { max-width: 100%; }
+  .calculate__inner { align-items: stretch; }
+  .calculate__body { max-width: none; }
+  .calculate__title { font-size: clamp(rem(24), 6vw, rem(40)); }
+  .join-us__form-title { font-size: clamp(rem(28), 7vw, rem(40)); }
+  .join-us__form-button { max-width: 100%; }
+  .footer__contacts-link { overflow-wrap: anywhere; }
+}
+
+@include tablet {
+  .join-us__form-body { flex-wrap: wrap; }
+  .join-us__form-body .form-field { flex: 1 1 rem(240); }
+}
+@include mobile {
+  .join-us__form-body .form-field { flex: none; }
+  .header__overlay { justify-content: flex-start; padding-block: rem(90) rem(32); gap: rem(24); }
+  .header__menu-list { gap: 0; }
+  .header__menu-link { height: rem(60); }
+}
+
+@include tablet {
+  .header { padding-inline: rem(16); gap: rem(8); }
+  .header__menu-list { column-gap: rem(12); }
+  .header__logo { flex-shrink: 0; width: rem(115); }
+}
+.join-us__form-header { text-align: center; }
+
+.swiper-horizontal { touch-action: pan-y; }

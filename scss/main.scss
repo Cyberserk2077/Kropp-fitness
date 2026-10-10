@@ -18,9 +18,4 @@
 @use 'blocks/family';
 @use 'blocks/calculate';
 @use 'blocks/footer';
-
-// .header,
-// main>:not(:last-child),
-// .footer {
-//   display: none !important;
-// }
+@use 'blocks/polish';
